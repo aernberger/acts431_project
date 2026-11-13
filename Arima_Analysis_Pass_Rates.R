@@ -1,4 +1,5 @@
 #Try all p and q values of 0-2
+pass_rate_results <- data.frame()
 for (p in 0:2) {
   for (q in 0:2) {
     
@@ -7,20 +8,20 @@ for (p in 0:2) {
       order = c(p, 1, q)
     )
     
-    results <- rbind(
-      results,
+    pass_rate_results <- rbind(
+      pass_rate_results,
       c(p, 1, q, AIC(model), BIC(model))
     )
   }
 }
 
-names(results) <- c("p", "d", "q", "AIC", "BIC")
+names(pass_rate_results) <- c("p", "d", "q", "AIC", "BIC")
 
 # Rank by AIC
-results[order(results$AIC), ]
+pass_rate_results[order(pass_rate_results$AIC), ]
 
 # Rank by BIC
-results[order(results$BIC), ]
+pass_rate_results[order(pass_rate_results$BIC), ]
 
 #ARIMA modeling for pass rates ARIMA(2,1,0) from script 2
 prmodel1 <- arima(
