@@ -83,3 +83,5 @@ Box.test(
   lag = 12,
   type = "Ljung-Box"
 )
+
+#Pass rates model is good, the sarima candidates qq isn't perfect, but ARCH/GARCH not needed
