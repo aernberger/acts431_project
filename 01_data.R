@@ -1,11 +1,13 @@
 #Verify project data
-data1 <- soa_exam_p_pass_rates_431_clean
+exam.p.data <- read.csv(
+  "soa_exam_p_pass_rates_431_clean.csv"
+)
 
-head(data1)
-summary(data1)
+head(exam.p.data)
+summary(exam.p.data)
 
 #Convert Pass Rate to a time series object
-pass.rate <- data1$raw_pass_rate
+pass.rate <-exam.p.data$raw_pass_rate
 pass.rate.ts <- ts(pass.rate)
 
 #Pass Rate Stats
@@ -21,7 +23,7 @@ plot.ts(
 )
 
 #Convert Sittings to a time series object
-candidate.number <- data1$candidates
+candidate.number <-exam.p.data$candidates
 candidate.number.ts <- ts(candidate.number)
 
 #Candidate Sittings Stats
@@ -35,4 +37,3 @@ plot.ts(
   ylab = "Number of Candidates",
   xlab = "Exam Sitting Number"
 )
-
